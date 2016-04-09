@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>Clicker</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                <link rel="shortcut icon" href="//www.iconj.com/ico/j/j/jjb7s6i4x4.ico" type="image/x-icon" />
+                </head>
+<body>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Monofett" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lemon" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nova+Square" />	
+	<link rel="stylesheet" href="clicker.css">
+	<script src="clicker.js"></script>
+	<script src="clickerq.js"></script>
+</head>
+<body style="background-color:#e5f9ff">
+	<div class="container-fluid" style="text-align:center">
+		<h1 style="font-family:Lemon">Clicker Game</h1>
+		<h5 style="font-family:Lemon">&copy; Outelligence</h5>
+	</div>
+	<div class="container-fluid">
+		<ul class="nav nav-pills">
+			<li><button class="btn btn-md btn-info"><a href="clickerUpdates.html" target="_self">Version History</a></button></li>
+			<li class="dropdown"><button class="btn btn-md btn-default"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Settings<span class="caret"></span></a></button>
+				<ul class="dropdown-menu">
+					<li><button class="btn btn-md btn-success" onclick="save()" id="save_button">SAVE</button></li>
+					<li><button class="btn btn-md btn-danger" onclick="wipeSave()" id="wipe_save">RESET GAME</button></li>
+					<li title="Every 10 Seconds"><button class="btn btn-md btn-info" onclick="autoSave()" id="auto_save">AUTO-SAVE:<span id="auto_save_toggle"> ON</span></button></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<br>
+	<div id="notification">
+		<span id="notification_content">DOUBLED!</span>
+	</div>
+	<br>	<br>
+	<div class="container-fluid" style="text-align:center">
+		<h2><span id="cal_amt" class="cal_amt">0</span></h2>
+	</div>
+	<br>
+	<div class="container-fluid" style="text-align:center">
+		<h4 class="persecond_display">Per-Second: <span id="persecond_display">0</span></h4>
+	</div>
+	<br><br>
+	<div class="container-fluid">
+		<div id="button_div" onclick="manualAdd()">CLICK</div>
+	</div>
+	<br><br>
+	<div class="container-fluid">
+		<div class="row">
+		
+			<div class="col-sm-2 double-button" id="doubleMouse" onclick="doubleMouse()" title="COST: HALF">
+				<p>AUTO</p>	
+			</div>
+			<div class="col-sm-2 double-button" id="doubleFarm" onclick="doubleFarm()" title="COST: HALF">
+				<p>FARM</p>
+			</div>
+			<div class="col-sm-2 double-button" id="doubleFactory" onclick="doubleFactory()" title="COST: HALF">
+				<p>FACTORY</p>
+			</div>
+			<div class="col-sm-2 double-button" id="doubleCity" onclick="doubleCity()" title="COST: HALF">
+				<p>CITY</p>
+			</div>
+			<div class="col-sm-2 double-button" id="doubleClick" onclick="doubleAuto()" title="COST: HALF">
+				<p>CLICK</p>
+			</div>
+			<div class="col-sm-2 double-button">
+				<p>filler</p>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col-lg-3 upgrade_button" style="text-align:center; margin:0px" id="upMouse" onclick="upMouse()">
+				<div class="upgrade_button">
+					<div style="float:left">
+						<p style="font-size:25px">AUTO-CLICK</p>
+					</div>
+					<div style="float:right">
+						<p id="mouse_amt" style="font-size:25px">0</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_button" style="text-align:center" id="upFarm" onclick="upFarm()">
+				<div class="upgrade_button">
+					<div style="float:left">
+						<p style="font-size:25px">FARM</p>
+					</div>
+					<div style="float:right">
+						<p id="farm_amt" style="font-size:25px">0</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_button" style="text-align:center" id="upFactory" onclick="upFactory()">
+				<div class="upgrade_button">
+					<div style="float:left">
+						<p style="font-size:25px">FACTORY</p>
+					</div>
+					<div style="float:right">
+						<p id="factory_amt" style="font-size:25px">0</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_button" style="text-align:center" id="upCity" onclick="upCity()">
+				<div class="upgrade_button">
+					<div style="float:left">
+						<p style="font-size:25px">CITY</p>
+					</div>
+					<div style="float:right">
+						<p id="city_amt" style="font-size:25px">0</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-3 upgrade_button" style="text-align:center" id="upClick" onclick="upClick()">
+				<div class="upgrade_button">
+					<div style="float:left">
+						<p style="font-size:25px">UPGRADE CLICK</p>
+					</div>
+					<div style="float:right">
+						<p id="man_amt" style="font-size:25px">0</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="row">
+			
+			<div class="col-lg-3 upgrade_desc_div" style="text-align:center"  id="upMouseDesc">
+				<div class="upgrade_desc_div_inner">
+					<div class="desc_div_line"><span class="up_desc">Cost-<span id="mouse_cost">20</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Amount-<span id="mouse_amt_desc">0</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Per Second-<span id="mouse_persecond">0</span></span></div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_desc_div" style="text-align:center"  id="upFarmDesc">
+				<div class="upgrade_desc_div_inner">
+					<div class="desc_div_line"><span class="up_desc">Cost-<span id="farm_cost">150</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Amount-<span id="farm_amt_desc">0</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Per Second-<span id="farm_persecond">0</span></span></div>				
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_desc_div" style="text-align:center" id="upFactoryDesc">
+				<div class="upgrade_desc_div_inner">
+					<div class="desc_div_line"><span class="up_desc">Cost-<span id="factory_cost">10,000</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Amount-<span id="factory_amt_desc">0</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Per Second-<span id="factory_persecond">0</span></span></div>
+				</div>
+			</div>
+			
+			<div class="col-lg-2 upgrade_desc_div" style="text-align:center" id="upCityDesc">
+				<div class="upgrade_desc_div_inner">
+					<div class="desc_div_line"><span class="up_desc">Cost-<span id="city_cost">100,000</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Amount-<span id="city_amt_desc">0</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Per Second-<span id="city_persecond">0</span></span></div>
+				</div>
+			</div>
+			
+			<div class="col-lg-3 upgrade_desc_div" style="text-align:center"  id="upClickDesc">
+				<div class="upgrade_desc_div_inner">
+					<div class="desc_div_line"><span class="up_desc">Cost-<span id="man_cost">500,000</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Amount-<span id="man_amt_desc">0</span></span></div>
+					<div class="desc_div_line"><span class="up_desc">Per Click-<span id="man_perclick">1</span></span></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>

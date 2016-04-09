@@ -1,0 +1,137 @@
+blockquote {
+	color: white;
+}
+
+p {
+	color: white;
+}
+
+.dropdown-toggle{
+	background-color:#e5f9ff
+}
+
+#notification{
+	height:65px;
+	width:200px;
+	background-color:#ffbf00;
+	position:absolute;
+	border-top:3px solid #00004d;
+	border-right:3px solid #00004d;
+	border-left:7px solid #00004d;
+	border-bottom:7px solid #00004d;
+	border-radius:20px;
+	line-height:63px;
+	text-align:center;
+	left:0
+}
+
+#notification_content{
+	font-family:Lemon;
+	font-size:22px;
+	color:#330033
+}
+
+#cal_amt{
+	font-family:Monofett;
+	font-size:85px;
+	color:navy
+}
+
+.persecond_display, #persecond_display{
+	font-family:'Nova Square',sans-serif;
+	font-size:25px;
+}
+
+#button_div{
+	background-color:#00a3cc;
+	height:110px;
+	width:100px;
+	line-height:110px;
+	margin:0 auto;
+	text-align:center;
+	color:white;
+	font-family:Impact;
+	font-size:25px;
+	border-left:6px solid navy;
+	border-right:6px solid navy;
+	border-bottom:6px solid navy
+}
+
+#button_div:active{
+	position:relative;
+	top:5px;
+}
+
+.col-sm-2, .col-lg-2, .col-lg-4, .col-lg-3{
+	border-top:2px solid black;
+	border-right:2px solid black;
+	border-bottom:6px solid navy;
+	border-left:6px solid navy;
+	border-radius:20px;
+	height:75px;
+	line-height:75px;
+	background-color:#007f80;
+	opacity:.5;
+	text-align:center;
+	margin:0px
+}
+
+.double-button{
+	opacity:1;
+	border-radius:40px;
+	background-color:#97e600;
+	font-family:Lobster;
+	font-size:40px;
+	border-top:2px solid black;
+	border-right:2px solid black;
+	border-bottom:6px solid #003300;
+	border-left:6px solid #003300;
+}
+
+.upgrade_desc_div{
+	background-color:#008db3;
+	height:130px
+}
+
+.upgrade_button{
+	font-family:'Lucida Sans Typewriter','Trebuchet MS',sans-serif;
+	margin:0px
+}
+
+.upgrade_button:active{
+	position:relative;
+	top:5px;
+}
+
+.upgrade_button:hover{
+	position:relative;
+	bottom:6px;
+}
+
+.double-button:active{
+	position:relative;
+	top:5px;
+}
+
+.double-button:hover{
+	position:relative;
+	bottom:6px
+}
+
+.up_desc{
+	color:white;
+	font-family:Lobster,Futura,sans-serif;
+	font-size:15px
+}
+
+.desc_div_line{
+	height:18px;
+	padding:5px;
+	margin:5px;
+	padding-top:0px
+}
+
+@decimal-format cal_amt{
+  grouping-separator: ",";
+  decimal-separator : "."
+}
