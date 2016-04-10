@@ -8,9 +8,9 @@ var factory_per_second = 0;
 var city_per_second = 0;
 var click_level = 1;
 var mouse_upgrade = 1;
-var farm_upgrade = 100;
-var factory_upgrade = 500;
-var city_upgrade = 5000;
+var farm_upgrade = 10;
+var factory_upgrade = 50;
+var city_upgrade = 200;
 var mouse_goal = 10;
 var farm_goal = 10;
 var factory_goal = 10;
@@ -162,9 +162,9 @@ function wipeSave(){
 		city_per_second = 0;
 		click_level = 1;
 		mouse_upgrade = 1;
-		farm_upgrade = 100;
-		factory_upgrade = 500;
-		city_upgrade = 5000;
+		farm_upgrade = 10;
+		factory_upgrade = 50;
+		city_upgrade = 200;
 		mouse_goal = 10;
 		farm_goal = 10;
 		factory_goal = 10;
@@ -391,7 +391,7 @@ function upFarm(){
 	if(amount >= z){
 		amount -= z;
 		if(farm_per_second == 0){
-			farm_per_second = 100;
+			farm_per_second = 10;
 			total_per_second += farm_per_second;
 		}else{
 			farm_per_second += farm_upgrade;
@@ -420,7 +420,7 @@ function upFactory(){
 	if(amount >= z){
 		amount -= z;
 		if(factory_per_second == 0){
-			factory_per_second = 500;
+			factory_per_second = 50;
 			total_per_second += factory_per_second;
 		}else{
 			factory_per_second += factory_upgrade;
@@ -449,7 +449,7 @@ function upCity(){
 	if(amount >= z){
 		amount -= z;
 		if(city_per_second == 0){
-			city_per_second = 5000;
+			city_per_second = 200;
 			total_per_second += city_per_second;
 		}else{
 			city_per_second += city_upgrade;
