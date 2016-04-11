@@ -1,6 +1,25 @@
 .jumbotron {
 	background-color: #33ff33;
+	margin: -5px,-5px, 0, -5px;
+	padding:20px;
+	border-radius: 0;
 	margin-bottom: 0;
+}
+
+#header {
+	float:left;
+	padding:5px;
+	margin:5px;
+	position:absolute;
+	margin-left:5px;
+	margin-bottom:5px;
+}
+
+#ad_div {
+	float:right;
+	position:absolute;
+	padding:5px;
+	margin:5px;
 }
 
 #title {
@@ -9,7 +28,7 @@
 }
 
 .navbar {
-	margin-bottom: 50px;
+	margin-bottom: 0;
 	border-radius: 0;
 	margin-left:0;
 	margin-right:0;
@@ -17,6 +36,7 @@
 
 #navcontainer {
 	background-color: #80ffe5;
+	margin-bottom: 5px;
 }
 
 #wcnavbar {
@@ -24,3 +44,50 @@
 	font-size:16px;
 	color: #000033;
 }
+
+#toolbar{
+	float:right;
+}
+
+#textbox_div {
+	height:400px;
+	margin-bottom:5px;
+}
+
+#textbox {
+	resize: none;
+	max-height: 400px;
+	font-size: 18px;
+	font-family: 'Fredoka One',cursive;
+}
+
+#resultbox {
+	background-color: #b3e6ff;
+	margin-left: -5px;
+	padding: 15px;
+	border-radius: 0px;
+	height:400px;
+	overflow-y:auto;
+	overflow-x:auto;
+	margin-right:5px;
+	margin-bottom:5px;
+}
+
+.visible-col {
+	border-width: 5px;
+	border-color: black;
+}
+
+#results-head {
+	font-family: 'Fredoka One',cursive;
+	color: #330033;
+}
+
+#results {
+	font-family: 'Fredoka One',cursive;
+	font-size:16px;
+	
+}
+
+
+
