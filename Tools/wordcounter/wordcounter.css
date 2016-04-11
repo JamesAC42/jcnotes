@@ -1,0 +1,26 @@
+.jumbotron {
+	background-color: #33ff33;
+	margin-bottom: 0;
+}
+
+#title {
+	font-family: 'Fredoka One', cursive;
+	color: #330033;
+}
+
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+	margin-left:0;
+	margin-right:0;
+}
+
+#navcontainer {
+	background-color: #80ffe5;
+}
+
+#wcnavbar {
+	font-family: 'Fredoka One',cursive;
+	font-size:16px;
+	color: #000033;
+}
