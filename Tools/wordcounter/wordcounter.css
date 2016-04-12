@@ -48,6 +48,10 @@
 #toolbar{
 	float:right;
 }
+#toolbar li a{
+	color: #000088;
+	font-size:25px;
+}
 
 #textbox_div {
 	height:400px;
@@ -55,10 +59,11 @@
 }
 
 #textbox {
-	resize: none;
+	resize: horizontal;
 	max-height: 400px;
-	font-size: 18px;
+	font-size: 20px;
 	font-family: 'Fredoka One',cursive;
+	max-width:100%;
 }
 
 #resultbox {
@@ -69,7 +74,7 @@
 	height:400px;
 	overflow-y:auto;
 	overflow-x:auto;
-	margin-right:5px;
+	margin-right:-5px;
 	margin-bottom:5px;
 }
 
