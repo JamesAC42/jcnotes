@@ -11,7 +11,9 @@
 	  	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
 	  	<link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
-
+		<link href='https://fonts.googleapis.com/css?family=Anonymous+Pro:700' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Nova+Mono' rel='stylesheet' type='text/css'>
+		
 	  	<link rel="stylesheet" href="wordcounter.css">
 	  	<script src="wordcounter.js"></script>
 
@@ -33,13 +35,25 @@
 			<div class="container-fluid" id="navcontainer">
 				<div class="collapse navbar-collapse" id="wcnavbar">
 					<ul class="nav navbar-nav">
-						<li><a href="../../index.html" target="_self">Home</a></li>
-						<li><a href="../toolsmenu.html" target="_self">Back</a></li>
-						<li><a href="http://www.github.com/JamesAC42/jcnotes/" target="_blank">View on Github</a></li>
-						<li><a href="#">View Code</a></li>
+						<li><a href="../../index.html" target="_self" class="menubuttons">Home</a></li>
+						<li><a href="../toolsmenu.html" target="_self" class="menubuttons">Back</a></li>
+						<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
 					</ul>
 					<ul class="nav navbar-nav" id="toolbar">
-						<li><a href="#">Edit</a></li>
+						<li><button class="btn btn-primary btn-lg toolbutton" onclick="countW()">Count</button></li>
+						<li><button class="btn btn-danger btn-lg toolbutton" onclick="cleartext()">Clear</button></li>
+						<li><button class="btn btn-success btn-lg toolbutton" onclick="save()">Save</button></li>
+						<li><button class="btn btn-info btn-lg toolbutton" onclick="load_save()">Load</button></li>
+						<li class="dropdown"><button class="dropdown-toggle btn btn-primary btn-lg toolbutton" data-toggle="dropdown">Options<span class="caret"></span></button>
+							<ul class="dropdown-menu">
+								<li onclick="wipeSave()" class="optionListE">
+									<div class="optionButton btn" style="color:red">Wipe Save</div>
+								</li>
+								<li onclick="colorSchemeToggle()" class="optionListE">
+									<div class="optionButton btn" style="color:blue" id="color_toggle">Colorful</div>
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -48,17 +62,21 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-7" id="textbox_div">
-					<textarea id="textbox" cols="75" rows="30" onkeypress="runwordcount()">
-						
-					</textarea>
+					<textarea id="textbox" cols="75" rows="30" onkeydown="countW()"></textarea>
 				</div>
 				<div class="col-lg-5" id="resultbox">
 					<h2 id="results-head">Results</h2>
 					<hr>
-					<p id="results"></p>
+					<h3 id="word_display">Words: <span id="amt_display">0</h3><hr>
+					<p id="stats"></p>
 				</div>
 			</div>
 		</div>
+		<br>
+		<footer class="container-fluid text-center" id="footerword">
+			<p class="footertext">&copy; JCNotes 2016</p><br>
+		</footer>
+		
 	</body>
 </html>
 

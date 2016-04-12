@@ -34,6 +34,12 @@
 	margin-right:0;
 }
 
+.toolbutton {
+	margin-top: 2px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 #navcontainer {
 	background-color: #80ffe5;
 	margin-bottom: 5px;
@@ -53,6 +59,18 @@
 	font-size:25px;
 }
 
+.optionListE {
+	padding:0;
+}
+
+.optionButton{
+	margin:0;
+	margin-left:10px;
+	font-family: 'Fredoka One',cursive;
+	font-size: 20px;
+	padding:0;
+}
+
 #textbox_div {
 	height:400px;
 	margin-bottom:5px;
@@ -64,6 +82,7 @@
 	font-size: 20px;
 	font-family: 'Fredoka One',cursive;
 	max-width:100%;
+	padding: 15px;
 }
 
 #resultbox {
@@ -88,10 +107,23 @@
 	color: #330033;
 }
 
-#results {
+#word_display {
 	font-family: 'Fredoka One',cursive;
-	font-size:16px;
-	
+	color: #FF0033;
+}
+
+#stats {
+	font-family: 'Nova Mono','Anonymous Pro', 'Courier New', Courier;
+	font-size:22px;	
+}
+
+#footerword {
+	height:40px;
+}
+
+.footertext {
+	font-family: 'Fredoka One', cursive;
+	font-size:18px;
 }
 
 
