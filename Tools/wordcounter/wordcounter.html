@@ -40,7 +40,7 @@
 						<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
 					</ul>
 					<ul class="nav navbar-nav" id="toolbar">
-						<li><button class="btn btn-primary btn-lg toolbutton" onclick="countW()">Count</button></li>
+						<li><button class="btn btn-primary btn-lg toolbutton" onclick="countAll()">Count</button></li>
 						<li><button class="btn btn-danger btn-lg toolbutton" onclick="cleartext()">Clear</button></li>
 						<li><button class="btn btn-success btn-lg toolbutton" onclick="save()">Save</button></li>
 						<li><button class="btn btn-info btn-lg toolbutton" onclick="load_save()">Load</button></li>
@@ -62,7 +62,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-7" id="textbox_div">
-					<textarea id="textbox" cols="75" rows="30" onkeydown="countW()"></textarea>
+					<textarea id="textbox" cols="75" rows="30" onkeydown="countAll()" onclick="countAll()" onmouseup="countSelected()"></textarea>
 				</div>
 				<div class="col-lg-5" id="resultbox">
 					<h2 id="results-head">Results</h2>

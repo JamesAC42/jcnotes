@@ -18,13 +18,11 @@ function repeatString(r,number){
 	return j;
 };
 
-function countW(){
+function countW(inputp){
 	var amountW = 0;
 	var characters = 0;
 	
-	var input = $("#textbox").val();
-	input += " ";
-	input = input.toLowerCase();
+	var input = inputp;
 	
 	var passage = "";
 	
@@ -41,8 +39,6 @@ function countW(){
 		};
 	};
 	
-	console.log(passage);
-	
 	var words = [];
 	n = 0;
 	var string = "";
@@ -58,8 +54,6 @@ function countW(){
 		};
 	};
 	
-	console.log(words);
-	
 	var new_words = [];
 	
 	for(n = 0;n < words.length;n++){
@@ -70,8 +64,6 @@ function countW(){
 		};
 	};
 	
-	console.log(new_words);
-	
 	var d = new Object;
 	for(n = 0; n < new_words.length; n++){
 		d[new_words[n]] = 0;
@@ -81,23 +73,15 @@ function countW(){
 		d[new_words[n]]++;
 	};
 	
-	console.log(d, amountW);
-	
-
 	var sortplace = [];
 	
 	for(var w in d){
 		sortplace.push([w, d[w]]);
 	};
 	
-	console.log(sortplace)
-	
-	
 	sortplace.sort(function(a, b) {
 		return a[1] - b[1]
 	});
-	
-	console.log(sortplace);
 	
 	
 	var final = new Object;
@@ -105,9 +89,7 @@ function countW(){
 	for(n = 0; n < sortplace.length; n++){
 		final[sortplace[n][0]] = sortplace[n][1];
 	};
-	
-	console.log(final);
-	
+
 	var stat = "";
 	
 	for(var word in final){
@@ -124,9 +106,28 @@ function countW(){
 	
 };
 
+
+function countAll(){
+	var input = $("#textbox").val();
+	input += " ";
+	input = input.toLowerCase();
+	countW(input);
+}
+
+function countSelected(){
+	window.setTimeout(actualCountSelect,500);
+}
+
+function actualCountSelect(){
+	var selected_input = window.getSelection();
+	var passage = selected_input.toString();
+	console.log(passage);
+	countW(passage);
+}
+
 function cleartext(){
 	document.getElementById('textbox').value = "";
-	countW();
+	countAll();
 }
 
 function save(){
@@ -151,7 +152,7 @@ function load_save(){
 	}else{
 		alert("Your browser does not support this save feature.");
 	}
-	countW();
+	countAll();
 };
 
 function wipeSave(){
