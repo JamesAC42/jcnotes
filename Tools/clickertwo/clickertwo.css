@@ -1,0 +1,67 @@
+#title-div {
+	height:75px;
+	padding-top:10px;
+}
+
+#title {
+	font-family: 'Chelsea Market';
+}
+
+#amount-display {
+	height:100px;
+	padding:10px;
+	color:black;
+	font-size:80px;
+	font-family: 'Squada One';
+	margin-bottom:10px;
+	width:100%;
+}
+
+#per-second-display {
+	height:20px;
+	paddding:10px;
+	color:black;
+	font-size:40px;
+	font-family: 'Squada One';
+	width:100%;
+	margin-top:10px;
+	margin-bottom:0px;
+}
+
+#click-button-div {
+	width:100%;
+	margin-top:10px;
+	padding:10px;
+}
+
+#button-img {
+	width:125px;
+	display:block;
+	margin: 0 auto;
+	margin-top:100px;
+}
+
+#building-nav {
+	overflow-y:auto;
+	height:600px;
+	margin-top:10px;
+}
+
+.building {
+	width:100%;
+	height:75px;
+	background-color:lightblue;
+	border:1px solid black;
+	color:blue;
+	font-size:24px;
+	vertical-align:center;
+	display:inline-block;
+	padding:20px;
+	font-family: 'Fugaz One';
+}
+
+
+
+
+
+
