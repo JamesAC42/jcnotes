@@ -1,64 +1,160 @@
+#display-div {
+	background: #b3ffb3;
+	background: linear-gradient(to right, #006600,#8cd98c,#8cd98c,#006600);
+}
+
 #title-div {
-	height:75px;
+	height:15vh;
 	padding-top:10px;
+	width:100%;
+	margin:0;
 }
 
 #title {
 	font-family: 'Chelsea Market';
+	font-size:50px;
 }
 
-#amount-display {
-	height:100px;
-	padding:10px;
-	color:black;
-	font-size:80px;
-	font-family: 'Squada One';
-	margin-bottom:10px;
+#navbar {
+	background:linear-gradient(to right, #006600,#8cd98c,#8cd98c,#006600);
+	margin:0;
 	width:100%;
 }
 
+#menubar {
+	float:left;
+}
+
+#toolbar {
+	float:right;
+}
+
+li a{
+	color:white;
+	font-family: 'Squada One';
+	font-size:22px;
+}
+
+#amount-display {
+	height:20vh;
+	padding:10px;
+	color:black;
+	font-size:115px;
+	font-family: 'Squada One';
+	width:100%;
+	margin:0;
+}
+
 #per-second-display {
-	height:20px;
-	paddding:10px;
+	height:10vh;
+	padding:10px;
 	color:black;
 	font-size:40px;
 	font-family: 'Squada One';
 	width:100%;
-	margin-top:10px;
-	margin-bottom:0px;
+	margin:0;
 }
 
 #click-button-div {
+	height:34vh;
 	width:100%;
-	margin-top:10px;
 	padding:10px;
+	margin:0;
 }
 
-#button-img {
-	width:125px;
-	display:block;
-	margin: 0 auto;
-	margin-top:100px;
+#click-button {
+	height:150px;
+	width:150px;
+	
+	border: 5px solid #004d99;
+	border-radius:50%;
+	
+	background: #0000CC;
+	background: radial-gradient(circle, #33ffff, #004d99);
+	
+	font-size:30px;
+	font-family: 'Chelsea Market';
+	
+	margin:0 auto;
+	margin-top:25px;
+}
+
+#upgrade-bar {
+	height:20vh;
+	width:100%;
+	padding:20px;
+	
+	background: #00e600;
+	background: linear-gradient(#00e600,#267326);
+	border: 3px solid green;
+	margin:0;
+	margin-bottom:10px;
 }
 
 #building-nav {
 	overflow-y:auto;
-	height:600px;
-	margin-top:10px;
+	height:100vh;
+	
+	background: #b3ecff;
+	background: linear-gradient(#b3ecff, #004d66);
+	
+	margin-right:0;
+	
 }
 
 .building {
 	width:100%;
-	height:75px;
-	background-color:lightblue;
-	border:1px solid black;
-	color:blue;
-	font-size:24px;
+	height:150px;
+	
+	background:#002e4d;
+	background: linear-gradient(to right, #002e4d , #007acc);
+	
+	border-left: 10px solid #00004d;
+	border-bottom: 10px solid #00004d;
+	border-top: 5px solid #6699ff;
+	border-right: 5px solid #6699ff;
+	border-radius: 10px;
+	
+	color:white;
+	font-size:45px;
+	font-family: 'Fugaz One';
+	
 	vertical-align:center;
 	display:inline-block;
-	padding:20px;
-	font-family: 'Fugaz One';
+	padding:45px;
+	
+	margin-top:6px;
+	margin-bottom:3px;
 }
+
+.description {
+	width:100%;
+	height:125px;
+	
+	background:#ff751a;
+	background: linear-gradient(#ff751a, #ffcc00);
+	
+	border: 5px solid #ff6600;
+	border-radius:10px;
+	
+	color: #002e4d;
+	font-size:16px;
+	font-family: 'Montserrat';
+	
+	padding:15px;
+	padding-left:20px;
+	margin-top:0;
+	margin-bottom:8px;
+	
+}
+
+.building p{
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */          
+}
+
 
 
 

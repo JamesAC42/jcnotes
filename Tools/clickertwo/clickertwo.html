@@ -1,43 +1,143 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ArcadeTest</title>
+		<title>DTM: The Game</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+	  	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
 		
 		<link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Chelsea+Market' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		
-		<link rel="stylesheet" href="arcade.css"  type="text/css">
+		<link rel="stylesheet" href="clickertwo.css"  type="text/css">
+		<script src="clickertwo.js"></script>
+		<script src="clickertwoquery.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-75497871-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+		
 	</head>
 	<body>
 		<div class="container-fluid" id="building-nav-div">
 			<div class="row">
 				<div class="col-lg-4" id="building-nav">
-					<div id="building-1" class="building text-center"><p>Building 1</p></div>
-					<div id="building-2" class="building text-center"><p>Building 2</p></div>
-					<div id="building-3" class="building text-center"><p>Building 3</p></div>
-					<div id="building-4" class="building text-center"><p>Building 4</p></div>
-					<div id="building-5" class="building text-center"><p>Building 5</p></div>
-					<div id="building-6" class="building text-center"><p>Building 6</p></div>
-					<div id="building-7" class="building text-center"><p>Building 7</p></div>
-					<div id="building-8" class="building text-center"><p>Building 8</p></div>
-					<div id="building-9" class="building text-center"><p>Building 9</p></div>
-					<div id="building-10" class="building text-center"><p>Building 10</p></div>
+				
+					<div id="building-1" class="building text-center"><p>Gatherer</p></div>
+					<div id="building-1-description" class="description"><p>
+					<b>About: </b>< 30,600 BCE. Man gathered food.<br>
+					<b>Cost: </b> <span id="building-1-cost"></span><br>
+					<b>Per Second: </b><span id="building-1-ps"></span><br>
+					<b>Amount: </b><span id="building-1-amt"></span>
+					</p></div>
+					
+					<div id="building-2" class="building text-center"><p>Pestle Tool</p></div>
+					<div id="building-2-description" class="description"><p>
+					<b>About: </b>30,600 BCE. Oat grinding in S.Italy.<br>
+					<b>Cost: </b> <span id="building-2-cost"></span><br>
+					<b>Per Second: </b><span id="building-2-ps"></span><br>
+					<b>Amount: </b> <span id="building-2-amt"></span>
+					</p></div>
+					
+					<div id="building-3" class="building text-center"><p>Animal Labor</p></div>
+					<div id="building-3-description" class="description"><p>
+					<b>About: </b>6,500 BCE. Cattle domestication in Turkey<br>
+					<b>Cost: </b> <span id="building-3-cost"></span><br>
+					<b>Per Second: </b><span id="building-3-ps"></span><br>
+					<b>Amount: </b> <span id="building-3-amt"></span>
+					</p></div>
+					
+					<div id="building-4" class="building text-center"><p>Irrigation</p></div>
+					<div id="building-4-description" class="description"><p>
+					<b>About: </b>3,500 BCE. Mesopotamian water systems.<br>
+					<b>Cost: </b> <span id="building-4-cost"></span><br>
+					<b>Per Second: </b><span id="building-4-ps"></span><br>
+					<b>Amount: </b> <span id="building-4-amt"></span>
+					</p></div>
+					
+					<div id="building-5" class="building text-center"><p>Windmill</p></div>
+					<div id="building-5-description" class="description"><p>
+					<b>About: </b>1,700 BCE. Babylonians harness the wind.<br>
+					<b>Cost: </b> <span id="building-5-cost"></span><br>
+					<b>Per Second: </b><span id="building-5-ps"></span><br>
+					<b>Amount: </b> <span id="building-5-amt"></span>
+					</p></div>
+					
+					<div id="building-6" class="building text-center"><p>Iron Plough</p></div>
+					<div id="building-6-description" class="description"><p>
+					<b>About: </b>500 BCE. Chinese invent iron plough.<br>
+					<b>Cost: </b> <span id="building-6-cost"></span><br>
+					<b>Per Second: </b><span id="building-6-ps"></span><br>
+					<b>Amount: </b> <span id="building-6-amt"></span>
+					</p></div>
+					
+					<div id="building-7" class="building text-center"><p>Cotton Gin</p></div>
+					<div id="building-7-description" class="description"><p>
+					<b>About: </b>1793. Eli Whitney <3 Efficiency.<br>
+					<b>Cost: </b> <span id="building-7-cost"></span><br>
+					<b>Per Second: </b><span id="building-7-ps"></span><br>
+					<b>Amount: </b> <span id="building-7-amt"></span>
+					</p></div>
+					
+					<div id="building-8" class="building text-center"><p>Refridgerator</p></div>
+					<div id="building-8-description" class="description"><p>
+					<b>About: </b>1801. Thomas Moore, MD. Cool.<br>
+					<b>Cost: </b> <span id="building-8-cost"></span><br>
+					<b>Per Second: </b><span id="building-8-ps"></span><br>
+					<b>Amount: </b> <span id="building-8-amt"></span>
+					</p></div>
+					
+					<div id="building-9" class="building text-center"><p>Chem. Fertilizer</p></div>
+					<div id="building-9-description" class="description"><p>
+					<b>About: </b>1842. John B. Lawes. Imitation Manure.<br>
+					<b>Cost: </b> <span id="building-9-cost"></span><br>
+					<b>Per Second: </b><span id="building-9-ps"></span><br>
+					<b>Amount: </b> <span id="building-9-amt"></span>
+					</p></div>
+					
+					<div id="building-10" class="building text-center"><p>Tractor</p></div>
+					<div id="building-10-description" class="description"><p>
+					<b>About: </b>1892. John Froelich makes machinery.<br>
+					<b>Cost: </b> <span id="building-10-cost"></span><br>
+					<b>Per Second: </b><span id="building-10-ps"></span><br>
+					<b>Amount: </b> <span id="building-10-amt"></span>
+					</p></div>
+					
+					
 				</div>
 				<div class="col-lg-8" id="display-div">
 					<div class="text-center" id="title-div">
-						<h1 id="title">Clicker</h1>
+						<div class="collapse navbar-collapse" id="navbar">
+							<ul class="nav navbar-nav" id="menu-bar">
+								<li><a href="../../index.html" target="_self" class="menubuttons">Home</a></li>
+								<li><a href="../toolsmenu.html" target="_self" class="menubuttons">Back</a></li>
+								<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
+							</ul>
+							<ul class="nav navbar-nav" id="toolbar">
+								<li><a>Save</a></li>
+							</ul>
+						</div>
+						<h1 id="title">DTM: The Game</h1>
 					</div>
-					<hr>
 					<div id="amount-display" class="text-center">0</div>
-					<div id="per-second-display" class="text-center"><span id="per-second">0</span> per-second</div>
-					<div id="click-button-div"><img class="img-responsive" id="button-img" src="images/blue-button.jpeg" alt="CLICK"></div>
+					<div id="per-second-display" class="text-center"><span id="per-second">0</span> crops per-second</div>
+					<div id="click-button-div"><div id="click-button" class="text-center"></div></div>
+					<div id="upgrade-bar"></div>
+					
 				<div>
 			</div>
 		</div>
+		
 	</body>
 </html>
 
