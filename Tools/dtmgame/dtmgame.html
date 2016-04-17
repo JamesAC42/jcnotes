@@ -83,7 +83,7 @@
 					
 					<div id="cotton" class="building text-center" onclick="upgradeBuilding('cotton')"><p>Cotton Gin</p></div>
 					<div id="cotton-description" class="description"><p>
-					<b>About: </b>1793. Eli Whitney <3 Efficiency.<br>
+					<b>About: </b>1793. Eli Whitney redefines efficiency.<br>
 					<b>Cost: </b> <span id="cotton-cost">25,000,000</span><br>
 					<b>Per Second: </b><span id="cotton-ps">0</span><br>
 					<b>Amount: </b> <span id="cotton-amt">0</span>
@@ -124,7 +124,8 @@
 								<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
 							</ul>
 							<ul class="nav navbar-nav" id="toolbar">
-								<li><a>Save</a></li>
+								<li><a onclick="save()">Save</a></li>
+								<!--<li><a onclick="loadSave()">Load</a></li>-->
 							</ul>
 						</div>
 						<h1 id="title">DTM: The Game</h1>
@@ -132,7 +133,13 @@
 					<div id="amount-display" class="text-center">0</div>
 					<div id="per-second-display" class="text-center"><span id="per-second">0</span> crops per-second</div>
 					<div id="click-button-div"><div id="click-button" class="text-center" onclick="harvest()"></div></div>
-					<div id="upgrade-bar"></div>
+					<div id="upgrade-bar">
+						<div id="upgrade-button" class="text-center"><p id="upgrade-description">
+						UPGRADE <span id="upgrade-building-name"></span><br>
+						Double CPS<br>
+						Cost: <span id="upgrade-cost"></span>
+						</p></div>
+					</div>
 					
 				<div>
 			</div>

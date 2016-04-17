@@ -26,13 +26,27 @@ $(document).ready(function(){
 	}).mouseup(function(){
 		$(this).css('margin-top','25px');
 	});
+	
+	
+});
+
+$(document).ready(function(){
+	
+	$('#upgrade-button').mouseenter(function(){
+		$(this).css('background','linear-gradient(#cccc00,#999900');
+	}).mouseleave(function(){
+		$(this).css('background','linear-gradient(#e6e600,#b3b300)');
+	}).mousedown(function(){
+		$(this).css('margin-top','20px');
+	}).mouseup(function(){
+		$(this).css('margin-top','10px');
+	});
 });
 
 
 $(document).ready(function(){
 	$('.building').fadeTo(100,0.25);
+	$('.description').slideUp('fast');
+	//$('#upgrade-button').slideUp('fast');
 });
 
-$(document).ready(function(){
-	$('.description').slideUp('fast');
-});
