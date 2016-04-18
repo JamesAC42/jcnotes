@@ -3,184 +3,43 @@ var crop_total = 0;
 var total_per_second = 0;
 
 var harvest_level = 1; 
-var gatherer_level = 0.1; //.1
-var pestle_level = 1; //1
-var animal_level = 10; //10
-var irrigation_level = 50; //50
-var windmill_level = 250; //250
-var plough_level = 1500; //1,500
-var cotton_level = 7500; //7,500
-var fridge_level = 45000; //45,000
-var fertilizer_level = 250000; //250,000
-var tractor_level = 1500000; //1,500,000
 
-var buildings = ['gatherer','pestle','animal','irrigation','windmill','plough','cotton','fridge','fertilizer','tractor'];
+var upgradeInProgress = false;
 
+var buildingsList = ['gatherer','pestle','animal','irrigation','windmill','plough','cotton','fridge','fertilizer','tractor'];
+var buildings = {
+	gatherer:[0.1,10],
+	pestle:[1,10],
+	animal:[10,10],
+	irrigation:[50,10],
+	windmill:[250,10],
+	plough:[1500,10],
+	cotton:[7500,10],
+	fridge:[45000,10],
+	fertilizer:[250000,10],
+	tractor:[1500000,10]
+};
 function harvest(){
 	crop_total += harvest_level;
 	$('#amount-display').text(Math.round(crop_total.toLocaleString()));
 };
 
-function upgradeBuilding(building){
-	
-	switch(building){
-		case 'gatherer':
-			var cost = $('#gatherer-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += gatherer_level;
-				$('#gatherer-ps').text((parseFloat($('#gatherer-ps').text().replace(/,/g, "")) + gatherer_level).toLocaleString());
-				$('#gatherer-amt').text((parseInt($('#gatherer-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#gatherer-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('gatherer');
-			};
-			break;
-		case 'pestle':
-			var cost = $('#pestle-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += pestle_level;
-				$('#pestle-ps').text((parseInt($('#pestle-ps').text().replace(/,/g, "")) + pestle_level).toLocaleString());
-				$('#pestle-amt').text((parseInt($('#pestle-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#pestle-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('pestle');
-			};
-			break;
-		case 'animal':
-			var cost = $('#animal-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += animal_level;
-				$('#animal-ps').text((parseInt($('#animal-ps').text().replace(/,/g, "")) + animal_level).toLocaleString());
-				$('#animal-amt').text((parseInt($('#animal-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#animal-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('animal');
-			};
-			break;
-		case 'irrigation':
-			var cost = $('#irrigation-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += irrigation_level;
-				$('#irrigation-ps').text((parseInt($('#irrigation-ps').text().replace(/,/g, "")) + irrigation_level).toLocaleString());
-				$('#irrigation-amt').text((parseInt($('#irrigation-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#irrigation-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('irrigation');
-			};
-			break;
-		case 'windmill':
-			var cost = $('#windmill-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += windmill_level;
-				$('#windmill-ps').text((parseInt($('#windmill-ps').text().replace(/,/g, "")) + windmill_level).toLocaleString());
-				$('#windmill-amt').text((parseInt($('#windmill-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#windmill-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('windmill');
-			};
-			break;
-		case 'plough':
-			var cost = $('#plough-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += plough_level;
-				$('#plough-ps').text((parseInt($('#plough-ps').text().replace(/,/g, "")) + plough_level).toLocaleString());
-				$('#plough-amt').text((parseInt($('#plough-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#plough-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('plough');
-			};
-			break;
-		case 'cotton':
-			var cost = $('#cotton-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += cotton_level;
-				$('#cotton-ps').text((parseInt($('#cotton-ps').text().replace(/,/g, "")) + cotton_level).toLocaleString());
-				$('#cotton-amt').text((parseInt($('#cotton-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#cotton-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('cotton');
-			};
-		case 'fridge':
-			var cost = $('#fridge-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += fridge_level;
-				$('#fridge-ps').text((parseInt($('#fridge-ps').text().replace(/,/g, "")) + fridge_level).toLocaleString());
-				$('#fridge-amt').text((parseInt($('#fridge-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#fridge-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('fridge');
-			};
-		case 'fertilizer':
-			var cost = $('#fertilizer-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(crop_total >= cost){
-				total_per_second += fertilizer_level;
-				$('#fertilizer-ps').text((parseInt($('#fertilizer-ps').text().replace(/,/g, "")) + fertilizer_level).toLocaleString());
-				$('#fertilizer-amt').text((parseInt($('#fertilizer-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#fertilizer-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('fertilizer');
-			};
-		case 'tractor':
-			var cost = $('#tractor-cost').text();
-			cost = cost.replace(/,/g, "");
-			cost = parseInt(cost);
-			if(cost >= crop_total){
-				total_per_second += tractor_level;
-				$('#tractor-ps').text((parseInt($('#tractor-ps').text().replace(/,/g, "")) + tractor_level).toLocaleString());
-				$('#tractor-amt').text((parseInt($('#tractor-amt').text().replace(/,/g, "")) + 1).toLocaleString());
-				crop_total -= cost;
-				cost = Math.round(cost * 1.15);
-				$('#tractor-cost').text(cost.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				$('#amount-display').text(crop_total.toLocaleString());
-				afford('tractor');
-			};
-			break;
+
+function buyBuilding(building){
+	var buildingLevel = buildings[building][0];
+	var cost = $('#' + building + '-cost').text();
+	cost = cost.replace(/,/g, "");
+	cost = parseInt(cost);
+	if(crop_total >= cost){
+		total_per_second += buildingLevel;
+		$('#' + building + '-ps').text((parseFloat($('#'+ building + '-ps').text().replace(/,/g, "")) + buildingLevel).toLocaleString());
+		$('#' + building + '-amt').text((parseInt($('#' + building + '-amt').text().replace(/,/g, "")) + 1).toLocaleString());
+		crop_total -= cost;
+		cost = Math.round(cost * 1.15);
+		$('#' + building + '-cost').text(cost.toLocaleString());
+		$('#per-second').text(total_per_second.toLocaleString());
+		$('#amount-display').text(crop_total.toLocaleString());
+		afford(building);
 	};
 };
 
@@ -196,23 +55,64 @@ function afford(building){
 	};
 };
 
+function upgradeCheck(building){
+	if(upgradeInProgress == false){
+		var stringy = building + '-amt';
+		var current_amt = parseInt($('#'+stringy).text().replace(/,/g, ""));
+		if(current_amt >= (buildings[building][1] / 2)){
+			$('#upgrade-building-name').text(building);
+			$('#upgrade-goal').text(buildings[building][1]);
+			var cost = parseInt($('#' + building + '-cost').text().replace(/,/g, ""));
+			cost *= 10;
+			$('#upgrade-cost').text(cost.toLocaleString());
+			$('#upgrade-button').slideDown('fast');
+			$('#upgrade-button').fadeTo('fast',0.5);
+			upgradeInProgress = true;
+		}
+	}else{
+		var stringy = building + '-amt';
+		var current_amt = parseInt($('#'+stringy).text().replace(/,/g, ""));
+		if(current_amt >= (buildings[building][1])){
+			$('#upgrade-button').fadeTo('fast',1);
+		}
+	}
+}
+
+function upgradeBuilding(){
+	var cost = parseInt($('#upgrade-cost').text().replace(/,/g, ""));
+	var building = $('#upgrade-building-name').text();
+	var needed_amt = parseInt($('#upgrade-goal').text().replace(/,/g, ""));
+	var current_amt = parseInt($('#' + building + "-amt").text().replace(/,/g, ""));
+	if(crop_total >= cost && current_amt >= needed_amt){
+		buildings[building][0] *= 2;
+		buildings[building][1] *= 10;
+		var current_ps = parseFloat($('#' + building + '-ps').text().replace(/,/g, ""));
+		total_per_second += current_ps;
+		$('#' + building + '-ps').text((current_ps * 2).toLocaleString());
+		crop_total -= cost;
+		$('#per-second').text(total_per_second.toLocaleString());
+		$('#amount-display').text(crop_total.toLocaleString());
+		$('#upgrade-button').slideUp('fast');
+	}
+}
+
 setInterval(function(){
 	crop_total += parseFloat(total_per_second);
 	$('#amount-display').text((Math.round(crop_total)).toLocaleString());
-	
-	afford('gatherer');
-	afford('pestle');
-	afford('animal');
-	afford('irrigation');
-	afford('windmill');
-	afford('plough');
-	afford('cotton');
-	afford('fridge');
-	afford('fertilizer');
-	afford('tractor');
-	
 },1000);
 
+
+setInterval(function(){
+	for(var b in buildings){
+		afford(b);
+		upgradeCheck(b);
+	};
+},250);
+
+
+function stallSave(){
+	alert("coming soon, fixing a few things.");
+}
 
 function save(){
 	if(typeof(Storage) !== "undefined") {

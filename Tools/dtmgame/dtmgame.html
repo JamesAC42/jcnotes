@@ -33,7 +33,7 @@
 			<div class="row">
 				<div class="col-lg-4" id="building-nav">
 				
-					<div id="gatherer" class="building text-center" onclick="upgradeBuilding('gatherer')"><p>Gatherer</p></div>
+					<div id="gatherer" class="building text-center" onclick="buyBuilding('gatherer')"><p>Gatherer</p></div>
 					<div id="gatherer-description" class="description"><p>
 					<b>About: </b>< 30,600 BCE. Man gathered food.<br>
 					<b>Cost: </b> <span id="gatherer-cost">15</span><br>
@@ -41,7 +41,7 @@
 					<b>Amount: </b><span id="gatherer-amt">0</span>
 					</p></div>
 					
-					<div id="pestle" class="building text-center" onclick="upgradeBuilding('pestle')"><p>Pestle Tool</p></div>
+					<div id="pestle" class="building text-center" onclick="buyBuilding('pestle')"><p>Pestle Tool</p></div>
 					<div id="pestle-description" class="description"><p>
 					<b>About: </b>30,600 BCE. Oat grinding in S.Italy.<br>
 					<b>Cost: </b> <span id="pestle-cost">100</span><br>
@@ -49,7 +49,7 @@
 					<b>Amount: </b> <span id="pestle-amt">0</span>
 					</p></div>
 					
-					<div id="animal" class="building text-center" onclick="upgradeBuilding('animal')"><p>Animal Labor</p></div>
+					<div id="animal" class="building text-center" onclick="buyBuilding('animal')"><p>Animal Labor</p></div>
 					<div id="animal-description" class="description"><p>
 					<b>About: </b>6,500 BCE. Cattle domestication in Turkey<br>
 					<b>Cost: </b> <span id="animal-cost">1,000</span><br>
@@ -57,7 +57,7 @@
 					<b>Amount: </b> <span id="animal-amt">0</span>
 					</p></div>
 					
-					<div id="irrigation" class="building text-center" onclick="upgradeBuilding('irrigation')"><p>Irrigation</p></div>
+					<div id="irrigation" class="building text-center" onclick="buyBuilding('irrigation')"><p>Irrigation</p></div>
 					<div id="irrigation-description" class="description"><p>
 					<b>About: </b>3,500 BCE. Mesopotamian water systems.<br>
 					<b>Cost: </b> <span id="irrigation-cost">15,000</span><br>
@@ -65,7 +65,7 @@
 					<b>Amount: </b> <span id="irrigation-amt">0</span>
 					</p></div>
 					
-					<div id="windmill" class="building text-center" onclick="upgradeBuilding('windmill')"><p>Windmill</p></div>
+					<div id="windmill" class="building text-center" onclick="buyBuilding('windmill')"><p>Windmill</p></div>
 					<div id="windmill-description" class="description"><p>
 					<b>About: </b>1,700 BCE. Babylonians harness the wind.<br>
 					<b>Cost: </b> <span id="windmill-cost">125,000</span><br>
@@ -73,7 +73,7 @@
 					<b>Amount: </b> <span id="windmill-amt">0</span>
 					</p></div>
 					
-					<div id="plough" class="building text-center" onclick="upgradeBuilding('plough')"><p>Iron Plough</p></div>
+					<div id="plough" class="building text-center" onclick="buyBuilding('plough')"><p>Iron Plough</p></div>
 					<div id="plough-description" class="description"><p>
 					<b>About: </b>500 BCE. Chinese invent iron plough.<br>
 					<b>Cost: </b> <span id="plough-cost">1,000,000</span><br>
@@ -81,7 +81,7 @@
 					<b>Amount: </b> <span id="plough-amt">0</span>
 					</p></div>
 					
-					<div id="cotton" class="building text-center" onclick="upgradeBuilding('cotton')"><p>Cotton Gin</p></div>
+					<div id="cotton" class="building text-center" onclick="buyBuilding('cotton')"><p>Cotton Gin</p></div>
 					<div id="cotton-description" class="description"><p>
 					<b>About: </b>1793. Eli Whitney redefines efficiency.<br>
 					<b>Cost: </b> <span id="cotton-cost">25,000,000</span><br>
@@ -89,7 +89,7 @@
 					<b>Amount: </b> <span id="cotton-amt">0</span>
 					</p></div>
 					
-					<div id="fridge" class="building text-center" onclick="upgradeBuilding('fridge')"><p>Refridgerator</p></div>
+					<div id="fridge" class="building text-center" onclick="buyBuilding('fridge')"><p>Refridgerator</p></div>
 					<div id="fridge-description" class="description"><p>
 					<b>About: </b>1801. Thomas Moore, MD. Cool.<br>
 					<b>Cost: </b> <span id="fridge-cost">333,333,333</span><br>
@@ -97,7 +97,7 @@
 					<b>Amount: </b> <span id="fridge-amt">0</span>
 					</p></div>
 					
-					<div id="fertilizer" class="building text-center" onclick="upgradeBuilding('fertilizer')"><p>Fertilizer</p></div>
+					<div id="fertilizer" class="building text-center" onclick="buyBuilding('fertilizer')"><p>Fertilizer</p></div>
 					<div id="fertilizer-description" class="description"><p>
 					<b>About: </b>1842. John B. Lawes. Imitation Manure.<br>
 					<b>Cost: </b> <span id="fertilizer-cost">5,000,000,000</span><br>
@@ -105,7 +105,7 @@
 					<b>Amount: </b> <span id="fertilizer-amt">0</span>
 					</p></div>
 					
-					<div id="tractor" class="building text-center" onclick="upgradeBuilding('tractor')"><p>Tractor</p></div>
+					<div id="tractor" class="building text-center" onclick="buyBuilding('tractor')"><p>Tractor</p></div>
 					<div id="tractor-description" class="description"><p>
 					<b>About: </b>1892. John Froelich makes machinery.<br>
 					<b>Cost: </b> <span id="tractor-cost">70,000,000,000</span><br>
@@ -124,7 +124,7 @@
 								<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
 							</ul>
 							<ul class="nav navbar-nav" id="toolbar">
-								<li><a onclick="save()">Save</a></li>
+								<li><a onclick="stallSave()">Save</a></li>
 								<!--<li><a onclick="loadSave()">Load</a></li>-->
 							</ul>
 						</div>
@@ -134,9 +134,9 @@
 					<div id="per-second-display" class="text-center"><span id="per-second">0</span> crops per-second</div>
 					<div id="click-button-div"><div id="click-button" class="text-center" onclick="harvest()"></div></div>
 					<div id="upgrade-bar">
-						<div id="upgrade-button" class="text-center"><p id="upgrade-description">
-						UPGRADE <span id="upgrade-building-name"></span><br>
-						Double CPS<br>
+						<div id="upgrade-button" class="text-center" onclick="upgradeBuilding()"><p id="upgrade-description">
+						DOUBLE: <span id="upgrade-building-name"></span><br>
+						Need: <span id="upgrade-goal"></span><br>
 						Cost: <span id="upgrade-cost"></span>
 						</p></div>
 					</div>

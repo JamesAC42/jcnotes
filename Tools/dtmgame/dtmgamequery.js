@@ -47,6 +47,6 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.building').fadeTo(100,0.25);
 	$('.description').slideUp('fast');
-	//$('#upgrade-button').slideUp('fast');
+	$('#upgrade-button').slideUp('fast');
 });
 
