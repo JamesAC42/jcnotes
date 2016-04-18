@@ -93,6 +93,7 @@ function upgradeBuilding(){
 		$('#per-second').text(total_per_second.toLocaleString());
 		$('#amount-display').text(crop_total.toLocaleString());
 		$('#upgrade-button').slideUp('fast');
+		upgradeInProgress = false;
 	}
 }
 
