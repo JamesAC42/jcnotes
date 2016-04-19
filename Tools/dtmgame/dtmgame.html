@@ -6,8 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>		<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
 	  	<link rel="icon" href="../../favicon.ico" type="image/x-icon">
 		
 		<link href='https://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
@@ -113,6 +112,22 @@
 					<b>Amount: </b> <span id="tractor-amt">0</span>
 					</p></div>
 					
+					<div id="satellite" class="building text-center" onclick="buyBuilding('satellite')"><p>Satellite</p></div>
+					<div id="satellite-description" class="description"><p>
+					<b>About: </b>1994. Farmers plan plots from space.<br>
+					<b>Cost: </b> <span id="satellite-cost">1,000,000,000,000</span><br>
+					<b>Per Second: </b><span id="satellite-ps">0</span><br>
+					<b>Amount: </b> <span id="satellie-amt">0</span>
+					</p></div>
+					
+					<div id="biotech" class="building text-center" onclick="buyBuilding('biotech')"><p>Biotech</p></div>
+					<div id="biotech-description" class="description"><p>
+					<b>About: </b>1994. FDA approves FLAVRSAVR tomato.<br>
+					<b>Cost: </b> <span id="biotech-cost">25,000,000,000,000</span><br>
+					<b>Per Second: </b><span id="biotech-ps">0</span><br>
+					<b>Amount: </b> <span id="biotech-amt">0</span>
+					</p></div>
+					
 					
 				</div>
 				<div class="col-lg-8" id="display-div">
@@ -124,21 +139,55 @@
 								<li><a href="https://github.com/JamesAC42/jcnotes/tree/gh-pages/Tools"class="menubuttons">View on Github</a></li>
 							</ul>
 							<ul class="nav navbar-nav" id="toolbar">
-								<li><a onclick="stallSave()">Save</a></li>
-								<!--<li><a onclick="loadSave()">Load</a></li>-->
+								<li><a onclick="save()">Save</a></li>
+								<li><a onclick="loadSave()">Load</a></li>
 							</ul>
 						</div>
 						<h1 id="title">DTM: The Game</h1>
 					</div>
+					
+					
+					<div id='ad-nav-1' class='ad'>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- DTM Skyscraper -->
+						<ins class="adsbygoogle"
+							 style="display:inline-block;width:150px;height:60vh"
+							 data-ad-client="ca-pub-1717794133911955"
+							 data-ad-slot="8247377421"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+					
 					<div id="amount-display" class="text-center">0</div>
 					<div id="per-second-display" class="text-center"><span id="per-second">0</span> crops per-second</div>
 					<div id="click-button-div"><div id="click-button" class="text-center" onclick="harvest()"></div></div>
 					<div id="upgrade-bar">
-						<div id="upgrade-button" class="text-center" onclick="upgradeBuilding()"><p id="upgrade-description">
-						DOUBLE: <span id="upgrade-building-name"></span><br>
-						Need: <span id="upgrade-goal"></span><br>
-						Cost: <span id="upgrade-cost"></span>
+					
+						<div id="upgrade-button-1" class="text-center upgrade-button" onclick="upgradeBuilding('-1')"><p class="upgrade-description">
+						DOUBLE: <span id="upgrade-building-name-1"></span><br>
+						Need: <span id="upgrade-goal-1"></span><br>
+						Cost: <span id="upgrade-cost-1"></span>
 						</p></div>
+						
+						<div id="upgrade-button-2" class="text-center upgrade-button" onclick="upgradeBuilding('-2')"><p class="upgrade-description">
+						DOUBLE: <span id="upgrade-building-name-2"></span><br>
+						Need: <span id="upgrade-goal-2"></span><br>
+						Cost: <span id="upgrade-cost-2"></span>
+						</p></div>
+						
+						<div id="upgrade-button-3" class="text-center upgrade-button" onclick="upgradeBuilding('-3')"><p class="upgrade-description">
+						DOUBLE: <span id="upgrade-building-name-3"></span><br>
+						Need: <span id="upgrade-goal-3"></span><br>
+						Cost: <span id="upgrade-cost-3"></span>
+						</p></div>
+						
+						<div id="upgrade-button-4" class="text-center upgrade-button" onclick="upgradeBuilding('-4')"><p class="upgrade-description">
+						DOUBLE: <span id="upgrade-building-name-4"></span><br>
+						Need: <span id="upgrade-goal-4"></span><br>
+						Cost: <span id="upgrade-cost-4"></span>
+						</p></div>
+						
 					</div>
 					
 				<div>

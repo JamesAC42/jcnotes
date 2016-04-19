@@ -90,27 +90,30 @@ li a{
 	margin-bottom:10px;
 }
 
-#upgrade-button {
+.upgrade-button {
 	height:90%;
-	width:40%;
-	padding:10px;
+	width:24%;
+	padding:15px;
 	
 	background:#e6e600;
 	background: linear-gradient(#e6e600,#b3b300);
 	
 	margin:0 auto;
 	margin-top:10px;
+	margin-left:5px;
 	
 	border: 5px solid #805500;
 	border-left: 10px solid #805500;
 	border-radius: 5px;
 	
+	display:inline-block;
+	
 }
 
-#upgrade-description {
+.upgrade-description {
 	color: #1a000d;
 	font-family: 'Fugaz One',Monospace;
-	font-size:20px;
+	font-size:18px;
 }
 
 #building-nav {
@@ -174,8 +177,21 @@ li a{
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
 	-moz-user-select: none;      /* Firefox */
-	-ms-user-select: none;       /* IE/Edge */          
+	-ms-user-select: none;       /* IE/Edge */       	
 }
+
+#ad-nav-1{
+	position:absolute;
+	float:left;
+	height:60vh;
+}
+
+.ad{
+	border:5px solid black;
+	float:right;
+}
+
+
 
 
 

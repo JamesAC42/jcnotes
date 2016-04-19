@@ -25,21 +25,20 @@ $(document).ready(function(){
 		$(this).css('margin-top','35px');
 	}).mouseup(function(){
 		$(this).css('margin-top','25px');
-	});
-	
+	});	
 	
 });
 
 $(document).ready(function(){
 	
-	$('#upgrade-button').mouseenter(function(){
+	$('.upgrade-button').mouseenter(function(){
 		$(this).css('background','linear-gradient(#cccc00,#999900');
 	}).mouseleave(function(){
 		$(this).css('background','linear-gradient(#e6e600,#b3b300)');
 	}).mousedown(function(){
-		$(this).css('margin-top','20px');
+		$(this).css('background','white');
 	}).mouseup(function(){
-		$(this).css('margin-top','10px');
+		$(this).css('background','linear-gradient(#e6e600,#b3b300)')
 	});
 });
 
@@ -47,6 +46,6 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.building').fadeTo(100,0.25);
 	$('.description').slideUp('fast');
-	$('#upgrade-button').slideUp('fast');
+	$('.upgrade-button').slideUp('fast');
 });
 
