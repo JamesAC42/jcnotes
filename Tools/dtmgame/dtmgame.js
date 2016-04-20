@@ -1,4 +1,5 @@
-var crop_total = 100000000;
+
+var crop_total = 0;
 
 var total_per_second = 0;
 
@@ -25,6 +26,7 @@ var buildings = {
 	biotech:[70000000,10,0,25000000000000]
 	//[persecond, goal, amount, cost]
 };
+
 
 function harvest(){
 	var current = parseInt($('#amount-display').text().replace(/,/g, ""));
@@ -140,7 +142,7 @@ function save(){
 	if(typeof(Storage) !== "undefined") {
 		localStorage.cropTotal = parseInt(crop_total);
 		localStorage.totalPs = parseFloat(total_per_second);
-		localStorage.currentUpgrades = currentUpgrades;
+		localStorage.currentUpgrades = JSON.stringify(currentUpgrades);
 		localStorage.BuildingList = JSON.stringify(buildings);
 	}else{
 		alert('Your browser does not support this save feature!');
@@ -149,33 +151,51 @@ function save(){
 
 function loadSave(){
 	if(typeof(Storage) !== "undefined"){
-			if(localStorage.cropTotal){
-				crop_total = Math.round(localStorage.cropTotal);
-				total_per_second = Math.round(10*localStorage.totalPs)/10;
-				currentUpgrades = localStorage.currentUpgrades;
-				buildings = JSON.parse(localStorage.BuildingList);
-				
-				$('#amount-display').text(crop_total.toLocaleString());
-				$('#per-second').text(total_per_second.toLocaleString());
-				
-				for(var b in buildings){
-					var cost = buildings[b][3];
-					var amount = buildings[b][2];
-					var psecond = buildings[b][0] * amount;
-					$('#' + b + '-cost').text(cost.toLocaleString());
-					$('#' + b + '-ps').text(psecond.toLocaleString());
-					$('#' + b + '-amt').text(amount.toLocaleString());
-				}
-				
-				
-				$('#per-second').text(total_per_second.toLocaleString());
-				
-			}else{
-				alert('You have no saves!');
-			};
+		if(localStorage.cropTotal){
+			crop_total = Math.round(localStorage.cropTotal);
+			total_per_second = Math.round(10*localStorage.totalPs)/10;
+			currentUpgrades = JSON.parse(localStorage.currentUpgrades);
+			buildings = JSON.parse(localStorage.BuildingList);
+			
+			$('#amount-display').text(crop_total.toLocaleString());
+			$('#per-second').text(total_per_second.toLocaleString());
+			
+			for(var b in buildings){
+				var cost = buildings[b][3];
+				var amount = buildings[b][2];
+				var psecond = buildings[b][0] * amount;
+				$('#' + b + '-cost').text(cost.toLocaleString());
+				$('#' + b + '-ps').text(psecond.toLocaleString());
+				$('#' + b + '-amt').text(amount.toLocaleString());
+			}
+			
+			
+			$('#per-second').text(total_per_second.toLocaleString());
+			
+		}else{
+			alert('You have no saves!');
+		};
 	}else{
 		alert('Your browser does not support this save feature!');
 	};
+}
+
+function wipeSave(){
+	if(typeof(Storage) !== 'undefined'){
+		if(localStorage.cropTotal){
+			if(confirm('Are you sure you want to reset the game?')){
+				toggleAuto();
+				localStorage.removeItem('cropTotal');
+				localStorage.removeItem('totalPs');
+				localStorage.removeItem('currentUpgrades');
+				localStorage.removeItem('BuildingList');
+			}
+		}else{
+			alert('You have no saves!');
+		}
+	}else{
+		alert('Your browser does not support this save feature!');;
+	}
 }
 
 function toggleAuto(){
