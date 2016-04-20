@@ -141,6 +141,7 @@
 							<ul class="nav navbar-nav" id="toolbar">
 								<li><a onclick="save()">Save</a></li>
 								<li><a onclick="loadSave()">Load</a></li>
+								<li><a onclick="toggleAuto()">Autosave: <span id="autoStat">ON</span></a></li>
 							</ul>
 						</div>
 						<h1 id="title">DTM: The Game</h1>
@@ -159,9 +160,9 @@
 						</script>
 					</div>
 					
-					<div id="amount-display" class="text-center">0</div>
+					<div id="amount-display" class="text-center">100000000</div>
 					<div id="per-second-display" class="text-center"><span id="per-second">0</span> crops per-second</div>
-					<div id="click-button-div"><div id="click-button" class="text-center" onclick="harvest()"></div></div>
+					<div id="click-button-div"><div id="click-button" class="text-center" onclick="harvest()"><p></p></div></div>
 					<div id="upgrade-bar">
 					
 						<div id="upgrade-button-1" class="text-center upgrade-button" onclick="upgradeBuilding('-1')"><p class="upgrade-description">

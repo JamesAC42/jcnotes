@@ -1,4 +1,4 @@
-var crop_total = 0;
+var crop_total = 100000000;
 
 var total_per_second = 0;
 
@@ -6,6 +6,8 @@ var harvest_level = 1;
 
 var currentUpgrades = 0;
 var currentBuildings = [];
+
+var autosave = true;
 
 var buildingsList = ['gatherer','pestle','animal','irrigation','windmill','plough','cotton','fridge','fertilizer','tractor','satellite','biotech'];
 var buildings = {
@@ -25,10 +27,10 @@ var buildings = {
 };
 
 function harvest(){
-	console.log('crop total: '+  typeof(crop_total));
-	console.log('harvest type: ' + typeof(harvest_level));
-	crop_total += harvest_level;
-	$('#amount-display').text(Math.round(crop_total.toLocaleString()));
+	var current = parseInt($('#amount-display').text().replace(/,/g, ""));
+	current += harvest_level;
+	crop_total = current;
+	$('#amount-display').text(crop_total.toLocaleString());
 };
 
 
@@ -43,6 +45,7 @@ function buyBuilding(building){
 		$('#' + building + '-amt').text((parseInt($('#' + building + '-amt').text().replace(/,/g, "")) + 1).toLocaleString());
 		crop_total -= cost;
 		cost = Math.round(cost * 1.15);
+		buildings[building][3] = cost;
 		$('#' + building + '-cost').text(cost.toLocaleString());
 		$('#per-second').text(total_per_second.toLocaleString());
 		$('#amount-display').text(crop_total.toLocaleString());
@@ -85,7 +88,7 @@ function upgradeCheck(building){
 
 function remove(element){
 	for(var i in currentBuildings){
-		if(currentBuildings[i] === 'element'){
+		if(currentBuildings[i] === element){
 			currentBuildings.splice(i,1);
 		}
 	}
@@ -108,6 +111,10 @@ function upgradeBuilding(which){
 		$('#upgrade-button' + which).slideUp('fast');
 		remove(building);
 		currentUpgrades -= 1;
+		if(building == "gatherer"){
+			harvest_level *= 3;
+			
+		}
 	}
 }
 
@@ -115,6 +122,9 @@ setInterval(function(){
 	crop_total += parseFloat(total_per_second);
 	crop_total = parseFloat(crop_total)
 	$('#amount-display').text((Math.round(crop_total)).toLocaleString());
+	if(autosave){
+		save();
+	}
 },1000);
 
 
@@ -130,7 +140,6 @@ function save(){
 	if(typeof(Storage) !== "undefined") {
 		localStorage.cropTotal = parseInt(crop_total);
 		localStorage.totalPs = parseFloat(total_per_second);
-		localStorage.currentBuildings = currentBuildings;
 		localStorage.currentUpgrades = currentUpgrades;
 		localStorage.BuildingList = JSON.stringify(buildings);
 	}else{
@@ -143,20 +152,17 @@ function loadSave(){
 			if(localStorage.cropTotal){
 				crop_total = Math.round(localStorage.cropTotal);
 				total_per_second = Math.round(10*localStorage.totalPs)/10;
-				currentBuildings = localStorage.currentBuildings;
 				currentUpgrades = localStorage.currentUpgrades;
 				buildings = JSON.parse(localStorage.BuildingList);
 				
 				$('#amount-display').text(crop_total.toLocaleString());
 				$('#per-second').text(total_per_second.toLocaleString());
 				
-				console.log(buildings);
-				
 				for(var b in buildings){
 					var cost = buildings[b][3];
 					var amount = buildings[b][2];
 					var psecond = buildings[b][0] * amount;
-					$('#' + b + '-cost').text(cost);
+					$('#' + b + '-cost').text(cost.toLocaleString());
 					$('#' + b + '-ps').text(psecond.toLocaleString());
 					$('#' + b + '-amt').text(amount.toLocaleString());
 				}
@@ -171,6 +177,20 @@ function loadSave(){
 		alert('Your browser does not support this save feature!');
 	};
 }
+
+function toggleAuto(){
+	if(autosave){
+		autosave = false;
+		$('#autoStat').text('OFF');
+	}else{
+		autosave = true;
+		$('#autoStat').text('ON');
+	}
+}
+
+$(document).ready(function(){
+	loadSave();
+});
 
 
 
