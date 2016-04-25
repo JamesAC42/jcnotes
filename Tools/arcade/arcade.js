@@ -11,6 +11,13 @@ $(document).ready(function(){
 	},400);
 });
 
+var counter = 1;
+setInterval(function(){
+	$('#sprite').attr('src','images/frame' + counter.toString() + '.jpg');
+	counter++;
+	if(counter > 3)counter = 1;
+},150)
+
 
 
 
