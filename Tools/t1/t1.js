@@ -1,42 +1,68 @@
-function SpriteSheet(path, frameWidth, frameHeight, frameSpeed, endFrame){
-	var image = new Image();
-	var framesPerRow;
-	
-	//calculate the number of frames in a row after the image loads
-	var self = this;
-	image.onload = function(){
-		framesPerRow = Math.floor(image.width / frameWidth);
-	};
-	image.src = path;
-	
-	var currentFrame = 0;
-	var counter = 0;
-	
-	this.update = function(){
-		if(counter == (frameSpeed - 1())
-			currentFrame = (currentFrame + 1) % endFrame;
-		counter = (counter + 1) % frameSpeed;
+var CANVAS_WIDTH = 480;
+var CANVAS_HEIGHT = 320;
+
+var canvasElement = $("<canvas width='" + CANVAS_WIDTH + "' height='" + CANVAS_HEIGHT + "'></canvas>");
+var canvas = canvasElement.get(0).getContext("2d");
+canvasElement.appendTo('body');
+
+var FPS = 30;
+
+$(function() {
+	window.keydown = {};
+	function keyName(event) {
+		return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
+	}
+	$(document).bind("keydown",function(event)
+	{
+		keydown[keyName(event)] = true;
+	});
+	$(document).bind("keyup",function(event)
+	{
+		keydown[keyName(event)] = false;
+	});
+});
+
+
+setInterval(function(){
+	update();
+	draw();
+},1000/FPS);
+
+function update() {
+	if (keydown.left) {
+		player.x -= 2;
 	}
 	
-	this.draw = function(x,y){
-		var row = Math.floor(currentFrame / framesPerRow);
-		var col = Math.floor(currentFrame % framesPerRow);
-		ctx.drawImage(
-		image,
-		col * frameWidth, row * frameHeight,
-		frameWidth, frameHeight,
-		x, y,
-		frameWidth, frameHeight);
+	if (keydown.right) {
+		player.x += 2;
 	}
 }
 
-spritesheet = new SpriteSheet('standingsprite.png',125,121,3,5);
-function animate(){
-	requestAnimFrame(animate);
-	ctx.clearRect(0,0,150,150);
-	spritesheet.update();
-	spritesheet.draw(12.5,12.5);
+function draw() {
+	canvas.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+	player.draw();
 }
+
+var player = {
+	color: "#00A",
+	x: 220,
+	y: 270,
+	width: 32,
+	height: 32,
+	draw: function() {
+		canvas.fillStyle = this.color;
+		canvas.fillRect(this.x,this.y,this.width,this.height);
+	}
+};
+
+
+
+
+
+
+
+
+
 
 
 
