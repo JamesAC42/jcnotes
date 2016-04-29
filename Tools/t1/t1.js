@@ -7,20 +7,6 @@ canvasElement.appendTo('body');
 
 var FPS = 30;
 
-$(function() {
-	window.keydown = {};
-	function keyName(event) {
-		return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
-	}
-	$(document).bind("keydown",function(event)
-	{
-		keydown[keyName(event)] = true;
-	});
-	$(document).bind("keyup",function(event)
-	{
-		keydown[keyName(event)] = false;
-	});
-});
 
 
 setInterval(function(){
@@ -54,6 +40,23 @@ var player = {
 		canvas.fillRect(this.x,this.y,this.width,this.height);
 	}
 };
+
+
+$(function() {
+  window.keydown = {};
+  
+  function keyName(event) {
+    return jQuery.hotkeys.specialKeys[event.which] || String.fromCharCode(event.which).toLowerCase();
+  }
+  
+  $(document).bind("keydown", function(event) {
+    keydown[keyName(event)] = true;
+  });
+  
+  $(document).bind("keyup", function(event) {
+    keydown[keyName(event)] = false;
+  });
+});
 
 
 
